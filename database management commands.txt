@@ -1,0 +1,95 @@
+database management commands: 
+-----------------------------
+
+==>
+1. SELECT USER, HOST, ID, DB, COMMAND, TIME, STATE, INFO 
+FROM information_schema.PROCESSLIST;
+-Shows user Details with Host, post etc.
+
+2. SELECT User, Host FROM mysql.user;
+
+3. CREATE DATABASE database_name;
+
+4. SHOW DATABASES;
+
+5. USE database_name;
+
+6. RENAME DATABASE old_database_name TO new_database_name;
+
+7. DROP DATABASE database_name; (delete a database)
+
+table Management commands:
+----------------------------
+
+8. CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+
+9. SHOW TABLES;
+
+10. DESCRIBE table_name; (or desc tablename;)
+
+11. RENAME TABLE old_table_name TO new_table_name;
+
+12. DROP TABLE table_name; (delete table)
+
+user Management: 
+-----------------
+14. CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+
+15. SELECT User, Host FROM mysql.user;(list all users)
+
+16. ALTER USER 'username'@'host' IDENTIFIED BY 'new_password'; (Change user's password)
+
+17. DROP USER 'username'@'host'; (delete a auser)
+
+
+Privilege Management:
+----------------------
+
+18. GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host'; (all privileges on specific database)
+
+19. GRANT SELECT, INSERT ON database_name.table_name TO 'username'@'host'; (specific privileges)
+
+20. SHOW GRANTS FOR 'username'@'host';
+
+21. REVOKE ALL PRIVILEGES ON database_name.* FROM 'username'@'host';
+
+22. FLUSH PRIVILEGES; (apply Privilege changes)
+
+Query excution:
+---------------
+1. SELECT * FROM table_name; (select data)
+
+2. INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);   (instert data)
+
+3.UPDATE table_name SET column1 = value1 WHERE condition; (update data)
+
+4. DELETE FROM table_name WHERE condition; (delete data)
+
+5. Truncate Table(Remove All data)
+
+6. Backup a database:
+mysqldump -u username -p database_name > backup_file.sql
+
+7. Restore a database:
+mysql -u username -p database_name < backup_file.sql
+
+
+8. Show current database:
+SELECT DATABASE();
+
+
+9. Show current user:
+SELECT CURRENT_USER();
+
+10. Show active Connections:
+SHOW PROCESSLIST;
+
+11. check Server:
+STATUS;
+
+
+
